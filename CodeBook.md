@@ -1,8 +1,9 @@
 GETTING AND CLEANING DATA COURSE PROJECT
 ====
 
-# Author : Olivier CAZIN
-# Date : 2016/02/27
+
+Author : Olivier CAZIN  
+Date : 2016/02/27  
 
 describes the variables, the data, and any transformations or work that you performed to clean up the data
 
@@ -15,5 +16,28 @@ The data linked to from the course website represent data collected from the acc
 Here are the data for the project:
 <https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip>
 
+The files used are listed below :
+- The test and training set :
+  - train/X_train.txt
+  - test/X_test.txt
+- The test and training labels :
+  - train/y_train.txt
+  - test/y_test.txt
+- The test and training subjects 
+  - train/subject_train.txt
+  - test/subject_test.txt
+- The file which links the class labels with their activity name
+  - activity_labels.txt
+- The file which list all features
+  - features.txt
 
+ Variables description
+  --
+ 
+ 
+ 
+ 
+    Read.Table csv   
+    
+    
 
