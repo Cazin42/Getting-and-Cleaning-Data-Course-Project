@@ -111,27 +111,23 @@ Variables description
 Transformations or work performed to clean up the data
 --
  
-1. Merge the training and the test sets to create one data set
-
+Merge the training and the test sets to create one data set :
 
      x.all <- rbind(x.train, x.test)
      colnames(x.all) <- features[,2]
  
-2. Extract only the measurements on the mean and standard deviation for each measurement
-
+Extract only the measurements on the mean and standard deviation for each measurement :
 
      meansd <- grep("(mean|std)\\(", colnames(x.all))
      x.meansd <- x.all[,c(meansd)]
 
-3. Use descriptive activity names to name the activities in the data set
-
+Use descriptive activity names to name the activities in the data set :
 
      y.all <- rbind(y.train, y.test)
      colnames(y.all) <- c('activityId')
      all.meansd <- cbind(y.all, x.meansd)
 
-4. Appropriately labels the data set with descriptive variable names
-
+Appropriately labels the data set with descriptive variable names :
 
      activityType <- c()
      for(i in 1:length(all.meansd[,1]))
@@ -140,8 +136,7 @@ Transformations or work performed to clean up the data
      }
      all.meansd <- cbind(all.meansd, activityType)
 
-5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
-
+From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject :
 
      subject.all <- rbind(subject.train, subject.test)
      colnames(subject.all) <- c('subjectId')
