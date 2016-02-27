@@ -44,9 +44,9 @@ Read files :
 
 Variables description
 --
- 
-     str(x.train) 
 
+      str(x.train)
+  
 'data.frame':	7352 obs. of  561 variables:
  $ V1  : num  0.289 0.278 0.28 0.279 0.277 ...
  $ V2  : num  -0.0203 -0.0164 -0.0195 -0.0262 -0.0166 ...
@@ -59,7 +59,7 @@ Variables description
  $ V9  : num  -0.924 -0.958 -0.977 -0.989 -0.99 ...
  $ V10 : num  -0.935 -0.943 -0.939 -0.939 -0.942 ...
  [list output truncated]
- 
+
      str(x.test) 
 
 'data.frame':	2947 obs. of  561 variables:
@@ -74,8 +74,8 @@ Variables description
  $ V9  : num  -0.674 -0.946 -0.963 -0.969 -0.977 ...
  $ V10 : num  -0.894 -0.894 -0.939 -0.939 -0.939 ...
  [list output truncated]
- 
-      str(y.train) 
+
+     str(y.train)
 
 'data.frame':	7352 obs. of  1 variable:
  $ V1: int  5 5 5 5 5 5 5 5 5 5 ...
@@ -84,26 +84,25 @@ Variables description
  
  'data.frame':	2947 obs. of  1 variable:
  $ V1: int  5 5 5 5 5 5 5 5 5 5 ...
- 
+
       str(subject.train) 
  
  'data.frame':	7352 obs. of  1 variable:
  $ V1: int  1 1 1 1 1 1 1 1 1 1 ...
- 
-        str(subject.test) 
+
+      str(subject.test) 
  
  'data.frame':	2947 obs. of  1 variable:
  $ V1: int  2 2 2 2 2 2 2 2 2 2 ...
- 
-        str(activity.labels)
+
+      str(activity.labels)
  
  'data.frame':	6 obs. of  2 variables:
  $ V1: chr  "1" "2" "3" "4" ...
  $ V2: chr  "WALKING" "WALKING_UPSTAIRS" "WALKING_DOWNSTAIRS" "SITTING" ...
- 
-  
-        str(feature)
-        
+
+      str(feature)
+
  'data.frame':	561 obs. of  2 variables:
  $ V1: chr  "1" "2" "3" "4" ...
  $ V2: chr  "tBodyAcc-mean()-X" "tBodyAcc-mean()-Y" "tBodyAcc-mean()-Z" "tBodyAcc-std()-X" ..
@@ -113,22 +112,26 @@ Transformations or work performed to clean up the data
 --
  
 1. Merge the training and the test sets to create one data set
- 
+
+
      x.all <- rbind(x.train, x.test)
      colnames(x.all) <- features[,2]
  
 2. Extract only the measurements on the mean and standard deviation for each measurement
- 
+
+
      meansd <- grep("(mean|std)\\(", colnames(x.all))
      x.meansd <- x.all[,c(meansd)]
 
 3. Use descriptive activity names to name the activities in the data set
+
 
      y.all <- rbind(y.train, y.test)
      colnames(y.all) <- c('activityId')
      all.meansd <- cbind(y.all, x.meansd)
 
 4. Appropriately labels the data set with descriptive variable names
+
 
      activityType <- c()
      for(i in 1:length(all.meansd[,1]))
@@ -139,12 +142,13 @@ Transformations or work performed to clean up the data
 
 5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
 
+
      subject.all <- rbind(subject.train, subject.test)
      colnames(subject.all) <- c('subjectId')
      all <- cbind(subject.all, all.meansd)
  
  Calculate mean of each variable for each activity and each subject :
- 
+
      tidy_data <- aggregate(all[,3] ~ subjectId+activityType, data=all, FUN="mean")
      for(i in 4:(ncol(all)-1))
      {
@@ -153,7 +157,7 @@ Transformations or work performed to clean up the data
      colnames(tidy_data)[3:ncol(tidy_data)] <- colnames(x.meansd)
  
  Rename correctly columns :
- 
+
      names(tidy_data) <- gsub("std", "Std", names(tidy_data))
       names(tidy_data) <- gsub("mean", "Mean", names(tidy_data))
      names(tidy_data) <- gsub("\\(\\)", "", names(tidy_data))
@@ -161,6 +165,7 @@ Transformations or work performed to clean up the data
 Create the file : tidy_data.txt :
 
       write.table(tidy_data, file = "./tidy_data.txt", row.name=FALSE)
+
 
 
 
