@@ -5,7 +5,7 @@ GETTING AND CLEANING DATA COURSE PROJECT
 Author : Olivier CAZIN  
 Date : 2016/02/27  
 
-describes the variables, the data, and any transformations or work that you performed to clean up the data
+This code book aims to describe the variables, the data, and any transformations or work performed to clean up the data
 
 Data description
 --
@@ -30,6 +30,16 @@ The files used are listed below :
   - activity_labels.txt (6 observations and 2 variables)
 - The file which list all features
   - features.txt (561 observations and 2 variables)
+
+Read files : 
+     x.test <- read.table("./UCI HAR Dataset/test/X_test.txt")
+     x.train <- read.table("./UCI HAR Dataset/train/X_train.txt")
+     y.test <- read.table("./UCI HAR Dataset/test/y_test.txt")
+     y.train <- read.table("./UCI HAR Dataset/train/y_train.txt")
+     subject.test <- read.table("./UCI HAR Dataset/test/subject_test.txt")
+     subject.train <- read.table("./UCI HAR Dataset/train/subject_train.txt")
+     activity.labels <- read.table("./UCI HAR Dataset/activity_labels.txt", colClasses="character")
+     features <- read.table("./UCI HAR Dataset/features.txt", colClasses="character")
 
 Variables description
 --
@@ -97,6 +107,8 @@ Variables description
  $ V1: chr  "1" "2" "3" "4" ...
  $ V2: chr  "tBodyAcc-mean()-X" "tBodyAcc-mean()-Y" "tBodyAcc-mean()-Z" "tBodyAcc-std()-X" ..
  
+ Transformations or work performed to clean up the data
+ --
  
  
  
