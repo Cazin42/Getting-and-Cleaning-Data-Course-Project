@@ -18,21 +18,27 @@ Here are the data for the project:
 
 The files used are listed below :
 - The test and training set :
-  - train/X_train.txt
-  - test/X_test.txt
+  - train/X_train.txt (7352 observations and 561 variables)
+  - test/X_test.txt (2947 observations and 561 variables)
 - The test and training labels :
-  - train/y_train.txt
-  - test/y_test.txt
+  - train/y_train.txt (7352 observations and 1 variable)
+  - test/y_test.txt (2947 observations and 1 variable)
 - The test and training subjects 
-  - train/subject_train.txt
-  - test/subject_test.txt
+  - train/subject_train.txt (7352 observations and 1 variable)
+  - test/subject_test.txt (2947 observations and 1 variable)
 - The file which links the class labels with their activity name
-  - activity_labels.txt
+  - activity_labels.txt (6 observations and 2 variables)
 - The file which list all features
-  - features.txt
+  - features.txt (561 observations and 2 variables)
 
- Variables description
-  --
+
+
+
+
+
+
+Variables description
+--
  
  
  
